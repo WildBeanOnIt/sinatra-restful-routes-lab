@@ -30,8 +30,7 @@ class ApplicationController < Sinatra::Base
 
   post '/recipes' do
     @recipe = Recipe.create(:name => params[:name], :ingredients => params[:ingredients], :cook_time => params[:cook_time])
-    # render to "/#{@recipe.id}"
-    erb :new
+    redirect to "/recipes/#{@recipe.id}"
   end
   
   #show
@@ -41,7 +40,7 @@ class ApplicationController < Sinatra::Base
   end
   
   # delete
-  delete "/recipe/:id" do
+  delete "/recipes/:id" do
     Recipe.destroy(params[:id])
     redirect to "/recipes"
   end
