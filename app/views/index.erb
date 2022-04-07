@@ -1,7 +1,16 @@
-<ul>
+<h1>Your Recipes will be shown here.</h1>
+
+<ol>
     <% @recipes.each do |recipe|%>
     <li>
-        <a href="/recipes/<%= recipe.id %>">Name<%= recipe.name%></a>
+        <a href="/recipes/<%= recipe.id %>"><%= recipe.name%></a>
     </li>
     <%end%>
-</ul>
+</ol>
+
+
+
+<p>To Create a new Recipe click below:</p>
+<a href="/recipes/new">
+    <button>Create a new Recipe</button>
+</a>
